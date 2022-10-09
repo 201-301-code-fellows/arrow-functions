@@ -126,7 +126,7 @@ let sumAndProduct = (a, b) => {
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(sumAndProduct(3, 9));
 
-let message = name => `Hello, ${name}!`;
+let message = (name) => `Hello, ${name}!`;
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(message('Allie'));
@@ -155,29 +155,32 @@ console.log(joe.greeting());
 
 // TODO: After viewing the previous console.log(), return the code to a working state.
 
-Student.courseName =  () => 'This student is enrolled in Code 301.';
+Student.courseName = () => 'This student is enrolled in Code 301.';
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(Student.courseName());
-1
+console.log('');
 // STEP 11
 // How do arrow functions affect constructor functions?
+// arrow functions do not allow for the "this" keyword to be used to point at an instance of the object.
 Student.prototype.scope = function () {
   console.log(this);
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// joe.scope();
-
+joe.scope();
+console.log('');
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// joe.scopeArrow();
+joe.scopeArrow();
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
-//
+//  This will refer to an instance of a Student object
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//
+// this refers to the window object
 // 3. Explain why "this" is different when an arrow function is used.
-//
+/* An arrow function does not bind its own "this" value. It points to the global object
+    in a function declaration, this binds its own value to its current scope. Allowing "this" to refer to the instance of an object that will be created later. With an arrow function "this" will always point to the global object inside of a function or object. (inside of a class "this" refers to an instance of the class) 
+     */
